@@ -17,7 +17,7 @@ result3 = cursor.fetchall()
 cursor.execute("SELECT Name,Sex FROM passengers WHERE Pclass = 3 OR Age < 10")
 result4 = cursor.fetchall()
 
-
+a = 22
 
 
 #connection.commit
