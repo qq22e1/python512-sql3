@@ -20,6 +20,12 @@ result4 = cursor.fetchall()
 cursor.execute("SELECT Name,Fare FROM passengers ORDER BY Fare DESC ")
 result5 = cursor.fetchall()
 
+cursor.execute("SELECT Name,Age,Pclass FROM passengers WHERE SibSp > 0 OR Parch > 0")
+result6 = cursor.fetchall()
+
+
+
+
 
 
 
