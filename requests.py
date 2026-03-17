@@ -23,7 +23,10 @@ result5 = cursor.fetchall()
 cursor.execute("SELECT Name,Age,Pclass FROM passengers WHERE SibSp > 0 OR Parch > 0")
 result6 = cursor.fetchall()
 
-
+cursor.execute("""INSERT INTO passengers 
+                      (PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, Embarked)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (892, 0, 2, 'Test, Mr. John', 'male', 30, 0, 0, '12345', 50.0, '', 'S'))
 
 
 
