@@ -50,8 +50,32 @@ enrollments_data = [
 
 #cursor.executemany("INSERT INTO enrollments (StudentID, CourseID) VALUES (?, ?)", enrollments_data)
 cursor.execute("SELECT * FROM enrollments")
-result = cursor.fetchall()
-print(result)
+result1 = cursor.fetchall()
+
+
+cursor.execute("""SELECT students.FirstName,students.LastName,courses.CourseName
+                  FROM enrollments
+                  JOIN students ON enrollments.StudentID = students.StudentID
+                  JOIN courses ON enrollments.CourseID = courses.CourseID
+                  ORDER BY FirstName,LastName""")
+result2 = cursor.fetchall()
+
+cursor.execute("""SELECT students.FirstName,students.LastName 
+                  FROM enrollments
+                  JOIN students ON enrollments.StudentID = students.StudentID
+                  JOIN courses ON enrollments.CourseID = courses.CourseID
+                  WHERE courses.CourseID = 1
+                  """)
+result3 = cursor.fetchall()
+
+cursor.execute("""SELECT students.FirstName,students.LastName,courses.CourseName
+                  FROM enrollments
+                  JOIN students ON enrollments.StudentID = students.StudentID
+                  JOIN courses ON enrollments.CourseID = courses.CourseID
+                  WHERE students.FirstName = 'Мария' OR students.LastName = 'Кузнецова'
+                  ORDER BY LastName""")
+result4 = cursor.fetchall()
+
 
 
 #connect.commit()
