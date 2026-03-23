@@ -77,6 +77,11 @@ cursor.execute("""SELECT students.FirstName,students.LastName,courses.CourseName
 result4 = cursor.fetchall()
 
 
+cursor.execute("""DELETE FROM enrollments""")
+cursor.execute("""DELETE FROM students""")
+cursor.execute("""DELETE FROM courses""")
+
+
 
 #connect.commit()
 connect.close()
